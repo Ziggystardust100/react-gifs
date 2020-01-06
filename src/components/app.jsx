@@ -3,19 +3,19 @@ import giphy from 'giphy-api';
 import Gif from './gif';
 import GifList from './gif_list';
 import  SearchBar from './search_bar';
-const GIPHY_API_KEY = '1KMPHCBIOe3hOjJwCJQX49sRc6cM0oIm';
+const GIPHY_API_KEY = "dc6zaTOxFJmzC";
 
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            gifs = [],
-            selectedGifId: "xT9IgDEI1iZyb2wqo8"
+            gifs :[],
+            selectedGifId: "l0MYJAzu5RTVSGeiY"
         };
     }
 
     search = (query)=> {
-        giphy({ apiKey: GIPHY_API_KEY, https: true })
+        giphy({ apiKey: GIPHY_API_KEY ,  https: true})
       .search({
         q: query,
         rating: 'g',
@@ -28,8 +28,18 @@ class App extends Component {
     }
 
    selectGif = (id) => {
+       debugger;
+       const {gifs} = this.state;
+       const newgif = [...gifs];
+       //newgif.forEach(el) el.selected = false;
+
+       // x = find gif by data,id
+       // pui proprietate de selected true pe x
+
+       newgif.push(id);
        this.setState({
-           gifs: result.data
+        selectedGifId: id,
+        gifs: newgif
        });
    } 
    render() {

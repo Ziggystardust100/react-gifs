@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React,{Component} from 'react';
 
 class SearchBar extends Component {
     handleUpdate = (event)=> {
@@ -13,4 +13,4 @@ class SearchBar extends Component {
         );
     }
 }
-export default SearchBar;
+export default SearchBar;   
